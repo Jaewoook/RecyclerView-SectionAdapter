@@ -41,10 +41,10 @@ public abstract class SectionAdapter
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (isSectionHeaderView()) {
             //  get section header view
-            onBindSectionHeaderView(holder, position);
+            onBindSectionHeaderView((SECTION) holder, position);
         } else {
             //  get item view
-            onBindItemView(holder, position);
+            onBindItemView((ITEM) holder, position);
         }
     }
 
@@ -87,12 +87,12 @@ public abstract class SectionAdapter
      *
      * @param holder a view holder that you given in class generic type.
      */
-    public abstract <ITEM extends RecyclerView.ViewHolder> void onBindItemView(ITEM holder, int position);
+    public abstract void onBindItemView(ITEM holder, int position);
 
     /**
      * Called when the section header view is binding.
      *
      * @param holder a view holder that you given in class generic type.
      */
-    public abstract <SECTION extends RecyclerView.ViewHolder> void onBindSectionHeaderView(SECTION holder, int position);
+    public abstract void onBindSectionHeaderView(SECTION holder, int position);
 }
